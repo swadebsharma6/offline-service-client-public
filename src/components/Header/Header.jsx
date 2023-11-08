@@ -72,8 +72,8 @@ const Header = () => {
     </>
 
     return (
-        <section className="mb-10">
-        <div className="navbar bg-violet-900 px-6 py-5 rounded-t-md">
+        <section className="mb-4 bg-violet-900">
+        <div className="navbar  px-6 py-5 rounded-t-md">
         <div className="navbar-start">
           <div className="dropdown">
             <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -85,7 +85,7 @@ const Header = () => {
               
             </ul>
           </div>
-          <a className="btn btn-ghost font-bold text-white text-xl">OFF. SERVICE</a>
+          <a className="btn btn-ghost font-bold text-primary text-xl uppercase">OFF. Recipe Book</a>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu font-bold text-red-600  p-4 menu-horizontal px-1">
