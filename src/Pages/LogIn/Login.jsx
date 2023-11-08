@@ -1,7 +1,16 @@
-import { Link } from "react-router-dom";
+import { useContext, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import swal from "sweetalert";
+import { AuthContext } from "../../Providers/AuthProvider";
 
 
 const Login = () => {
+
+    const {logInUser} = useContext(AuthContext);
+    const [success, setSuccess] = useState('');
+    const [error, setError] = useState('');
+
+    const navigate = useNavigate();
 
     const handleSubmit = event =>{
         event.preventDefault();
@@ -9,9 +18,26 @@ const Login = () => {
         
         const email =form.email.value;
         const password = form.password.value;
-        
 
-        console.log( email, password, )
+         // reset error and success
+          setSuccess('');
+          setError('');
+
+        // login user
+        logInUser(email, password)
+        .then(result =>{
+            const user = result.user;
+            console.log('login user', user);
+            setSuccess('Your Logged in Successfully')
+            navigate('/');
+            swal("Good job!", "User Logged in successfully!", "success");
+            form.reset()
+        })
+        .catch(error =>{
+            setError(error.message)
+        })
+
+        
     }
 
     return (
@@ -106,6 +132,10 @@ const Login = () => {
            </p>
          </div>
            </form>
+           <div className="pb-5">
+           <p className=" text-primary font-semibold flex justify-center font-sans text-sm leading-normal text-inherit antialiased">{success && success}</p>
+           <p className=" text-red-700 font-semibold flex justify-center font-sans text-sm leading-normal text-inherit antialiased">{error && error}</p>
+           </div>
            </div>
              </div>
         </section>

@@ -1,7 +1,11 @@
+import { useContext } from "react";
 import { NavLink } from "react-router-dom";
+import { AuthContext } from "../../Providers/AuthProvider";
 
 
 const Header = () => {
+
+  const {user, } = useContext(AuthContext);
 
     const navMenus = <>
         <li><NavLink
@@ -63,6 +67,15 @@ const Header = () => {
           </ul>
         </div>
         <div className="navbar-end">
+        <span className="font-bold">{user && user.displayName}</span>
+        <label tabIndex={0} className="btn btn-ghost btn-circle avatar mr-8">
+         <div className="w-10 rounded-full">
+          
+             { user && <img src={user.photoURL} alt="" />}
+          
+        </div>
+      </label>
+
           <button  className="btn btn-secondary btn-sm ">Login</button>
         </div>
       </div> 

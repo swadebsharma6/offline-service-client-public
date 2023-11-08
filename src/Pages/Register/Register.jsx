@@ -1,8 +1,17 @@
+import { updateProfile } from "firebase/auth";
+import { useContext, useState } from "react";
+import toast from "react-hot-toast";
 import { Link } from "react-router-dom";
+import swal from "sweetalert";
+import { AuthContext } from "../../Providers/AuthProvider";
 import SocialRegister from "./SocialRegister/SocialRegister";
 
 
 const Register = () => {
+    const {createUser} = useContext(AuthContext);
+
+    const [error, setError] = useState('');
+    const [success, setSuccess] = useState('');
 
     const handleSubmit = event =>{
         event.preventDefault();
@@ -12,7 +21,45 @@ const Register = () => {
         const password = form.password.value;
         const photo = form.photo.value;
 
-        console.log(name, email, password, photo)
+        // reset Error and success
+      setError('');
+      setSuccess('');
+
+      if(password.length < 6){
+        setError('Password must be 6 character or Longer.');
+        return;
+     }
+     else if(!/[A-Z]/.test(password)){
+       setError('Please Provide a Capital Letter');
+       return;
+     }
+     
+
+
+        // create User
+        createUser(email, password)
+        .then(result =>{
+            const user = result.user;
+            console.log('created user', user);
+            setSuccess('User created Successfully ');
+            swal("Good job!", "User created successfully!", "success");
+                 // user update
+          updateProfile(user, {
+            displayName:name,
+            photoURL: photo
+          })
+          .then(()=>{
+            toast.success('user updated!')
+          })
+          .catch(error => setError(error.message))
+          form.reset();
+        
+        })
+        
+        .catch(error =>{
+            // console.log(error.message)
+            setError(error.message);
+        })
     }
 
     return (
@@ -85,6 +132,10 @@ const Register = () => {
         
       </div>
         </form>
+        <div className="mb-3 font-bold">
+        <p className="text-primary font-semibold flex justify-center font-sans text-sm leading-normal text-inherit antialiased">{success && success}</p>
+        <p className="text-red-700 font-semibold flex justify-center font-sans text-sm leading-normal text-inherit antialiased">{error && error}</p>
+        </div>
         <SocialRegister></SocialRegister>
         <p className="flex justify-center mt-2 pb-6 font-sans text-sm antialiased font-bold leading-normal text-inherit">
           Already have an account? Please
