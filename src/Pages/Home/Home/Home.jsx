@@ -2,9 +2,9 @@
 
 const Home = () => {
     return (
-        <div>
-            <h2>This is Home Components</h2>
-        </div>
+        <section>
+            <h2>This is Home </h2>
+        </section>
     );
 };
 

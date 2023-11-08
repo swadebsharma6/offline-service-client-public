@@ -26,7 +26,7 @@ const Header = () => {
     </>
 
     return (
-        <section>
+        <section className="mb-10">
         <div className="navbar bg-violet-900 px-6 py-5 rounded-t-md">
         <div className="navbar-start">
           <div className="dropdown">
