@@ -1,7 +1,9 @@
+import Footer from "../../../components/Footer/Footer";
 import About from "./About/About";
 import Banner from "./Banner/Banner";
 import Community from "./Community/Community";
 import Marque from "./Marque/Marque";
+import Testimonial from "./Testimonial/Testimonial";
 
 
 const Home = () => {
@@ -12,7 +14,8 @@ const Home = () => {
              <About></About>
              <Community></Community>
              <Marque></Marque>
-            <h2>This is Home and user: </h2>
+             <Testimonial></Testimonial>
+             <Footer></Footer>
         </section>
     );
 };
