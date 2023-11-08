@@ -1,11 +1,23 @@
 import { useContext } from "react";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
+import swal from "sweetalert";
 import { AuthContext } from "../../Providers/AuthProvider";
 
 
 const Header = () => {
 
-  const {user, } = useContext(AuthContext);
+  const {user,  logoutUser } = useContext(AuthContext);
+
+  const handleLogOut = ()=>{
+    logoutUser()
+    .then(()=>{
+      console.log('User logOut')
+        swal( "User LogOut successfully!", "success");
+    })
+    .catch((error) => {
+        console.log(error.message)
+      })
+}
 
     const navMenus = <>
         <li><NavLink
@@ -21,11 +33,41 @@ const Header = () => {
         Services
       </NavLink></li>
         <li><NavLink
-        to="/login"
+        to="/about"
         className={({ isActive,}) => isActive ? "font-bold text-orange-400 underline" : "" }
         >
-        Login
+        About
       </NavLink></li>
+
+           {
+            user &&
+            <li tabIndex={0}>
+              <details>
+                <summary>DashBoard</summary>
+                <ul className="p-2">
+                  <li><NavLink
+                  to="/my-services"
+                  className={({ isActive,}) => isActive ? "font-bold text-orange-400" : "" }
+                  >
+                 My Services
+                </NavLink></li>
+                  <li><NavLink
+                  to="/add"
+                  className={({ isActive,}) => isActive ? "font-bold text-orange-400 " : "" }
+                  >
+                 Add Services
+                </NavLink></li>
+                  <li><NavLink
+                  to="/schedule"
+                  className={({ isActive,}) => isActive ? "font-bold text-orange-400" : "" }
+                  >
+                 My Schedules
+                </NavLink></li>
+                  
+                </ul>
+              </details>
+            </li>
+           }
 
     </>
 
@@ -37,37 +79,21 @@ const Header = () => {
             <label tabIndex={0} className="btn btn-ghost lg:hidden">
               <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
             </label>
-            <ul tabIndex={0} className="menu font-bold text-red-600 menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+            <ul tabIndex={0} className="menu font-bold text-red-600 menu-sm dropdown-content mt-3 z-[1] p-6 shadow bg-base-100 rounded-box w-52">
               {navMenus}
-              <li>
-                <a>Parent</a>
-                <ul className="p-2">
-                  <li><a>Submenu 1</a></li>
-                  <li><a>Submenu 2</a></li>
-                </ul>
-              </li>
+             
               
             </ul>
           </div>
           <a className="btn btn-ghost font-bold text-white text-xl">OFF. SERVICE</a>
         </div>
         <div className="navbar-center hidden lg:flex">
-          <ul className="menu font-bold text-red-600  menu-horizontal px-1">
+          <ul className="menu font-bold text-red-600  p-4 menu-horizontal px-1">
             {navMenus}
-            <li tabIndex={0}>
-              <details>
-                <summary>Parent</summary>
-                <ul className="p-2">
-                  <li><a>Submenu 1</a></li>
-                  <li><a>Submenu 2</a></li>
-                </ul>
-              </details>
-            </li>
            
           </ul>
         </div>
         <div className="navbar-end">
-        <span className="font-bold">{user && user.displayName}</span>
         <label tabIndex={0} className="btn btn-ghost btn-circle avatar mr-8">
          <div className="w-10 rounded-full">
           
@@ -75,8 +101,13 @@ const Header = () => {
           
         </div>
       </label>
-
-          <button  className="btn btn-secondary btn-sm ">Login</button>
+        {
+          user
+           ? <button onClick={handleLogOut}  className="btn btn-secondary btn-sm ">LogOut</button>
+          : 
+          <Link to='/login'> <button  className="btn btn-secondary btn-sm ">Login</button></Link>
+        }
+          
         </div>
       </div> 
         </section>
@@ -84,3 +115,5 @@ const Header = () => {
 };
 
 export default Header;
+
+
