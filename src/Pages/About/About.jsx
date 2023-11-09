@@ -1,10 +1,19 @@
+import Footer from "../../components/Footer/Footer";
+import Community from "../Home/Home/Community/Community";
+import AboutUs from "./AboutUs";
+import Story from "./Story";
+import Video from "./Video";
 
 
 const About = () => {
     return (
-        <div>
-           <h2>About Comes here</h2> 
-        </div>
+        <section>
+           <AboutUs></AboutUs>
+           <Video></Video>
+           <Story></Story>
+           <Community></Community>
+           <Footer></Footer>
+        </section>
     );
 };
 
