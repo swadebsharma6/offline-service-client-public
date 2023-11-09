@@ -3,6 +3,7 @@ import About from "./About/About";
 import Banner from "./Banner/Banner";
 import Community from "./Community/Community";
 import Marque from "./Marque/Marque";
+import SampleRecipe from "./SampleRecipe/SampleRecipe";
 import Testimonial from "./Testimonial/Testimonial";
 
 
@@ -12,6 +13,7 @@ const Home = () => {
         <section>
              <Banner></Banner>
              <About></About>
+             <SampleRecipe></SampleRecipe>
              <Community></Community>
              <Marque></Marque>
              <Testimonial></Testimonial>

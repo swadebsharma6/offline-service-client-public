@@ -1,0 +1,6 @@
+.community-bg {
+  background-image: url("../../../../assets/community-bg.jpg");
+  height: 300px;
+  background-size: cover;
+  border-radius: 10px;
+}

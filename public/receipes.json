@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "recipeName": "Classic Spaghetti Bolognese",
+    "imageLink": "https://i.ibb.co/9w5j0KL/sofia-ciravegna-kh-Qeenz99-H0-unsplash-1.jpg"
+  },
+  {
+    "id": 2,
+    "recipeName": "Grilled Lemon Herb Chicken",
+    "imageLink": "https://i.ibb.co/2MrkMZ8/sam-moghadam-khamseh-Vp-Opy6-Qr-Drs-unsplash.jpg"
+  },
+  {
+    "id": 3,
+    "recipeName": "Vegetarian Quinoa Salad",
+    "imageLink": "https://i.ibb.co/MSnc4FL/yoav-aziz-Ai-HJi-RCw-B3w-unsplash.jpg"
+  },
+  {
+    "id": 4,
+    "recipeName": "Creamy Tomato Basil Soup",
+    "imageLink": "https://i.ibb.co/cLZKSSm/matthew-hamilton-RA4mwm9-j-KA-unsplash.jpg"
+  },
+  {
+    "id": 5,
+    "recipeName": "Garlic Butter Shrimp Pasta",
+    "imageLink": "https://i.ibb.co/z6kmkxC/eaters-collective-dd-ZYOt-ZUn-Bk-unsplash.jpg"
+  },
+  {
+    "id": 6,
+    "recipeName": "Chocolate Avocado Smoothie",
+    "imageLink": "https://i.ibb.co/Kw9xbh7/michele-blackwell-ev-RB-x0-TJk-M-unsplash.jpg"
+  }
+]
