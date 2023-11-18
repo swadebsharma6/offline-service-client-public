@@ -41,32 +41,12 @@ const Header = () => {
 
            {
             user &&
-            <li tabIndex={0}>
-              <details>
-                <summary>DashBoard</summary>
-                <ul className="p-2">
-                  <li><NavLink
-                  to="/my-services"
-                  className={({ isActive,}) => isActive ? "font-bold text-orange-400" : "" }
-                  >
-                 My Services
-                </NavLink></li>
-                  <li><NavLink
-                  to="/add"
-                  className={({ isActive,}) => isActive ? "font-bold text-orange-400 " : "" }
-                  >
-                 Add Services
-                </NavLink></li>
-                  <li><NavLink
-                  to="/schedule"
-                  className={({ isActive,}) => isActive ? "font-bold text-orange-400" : "" }
-                  >
-                 My Schedules
-                </NavLink></li>
-                  
-                </ul>
-              </details>
-            </li>
+            <li><NavLink
+            to="/dashboard"
+            className={({ isActive,}) => isActive ? "font-bold text-orange-400 underline" : "" }
+            >
+            DashBoard
+          </NavLink></li>
            }
 
     </>

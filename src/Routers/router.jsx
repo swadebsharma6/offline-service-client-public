@@ -1,7 +1,9 @@
 import { createBrowserRouter } from "react-router-dom";
+import DashBoard from "../LayOut/DashBoard";
 import Root from "../LayOut/Root";
 import About from "../Pages/About/About";
 import AddServices from "../Pages/AddServices/AddServices";
+import DashBoardHome from "../Pages/DashBoard/DashBoardHome/DashBoardHome";
 import Home from "../Pages/Home/Home/Home";
 import Login from "../Pages/LogIn/Login";
 import MySchedule from "../Pages/My-Schedule/MySchedule";
@@ -49,6 +51,28 @@ const router = createBrowserRouter([
         }
       ]
     },
+    {
+      path: '/dashboard',
+      element:<DashBoard></DashBoard>,
+      children:[
+        {
+            path: '/dashboard',
+            element: <DashBoardHome></DashBoardHome>
+        },
+        {
+            path:'/dashboard/my-service',
+            element: <MyServices></MyServices>
+        },
+        {
+            path: '/dashboard/add-services',
+            element: <AddServices></AddServices>
+        },
+        {
+            path: '/dashboard/my-schedule',
+            element: <MySchedule></MySchedule>
+        }
+      ]
+    }
   ]);
 
 

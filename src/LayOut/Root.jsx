@@ -5,10 +5,9 @@ import Header from "../components/Header/Header";
 
 const Root = () => {
     return (
-        <div className="max-w-7xl mx-auto">
+        <div className="max-w-screen-xl mx-auto">
             <Header></Header>
             <Outlet></Outlet>
-            
         </div>
     );
 };
