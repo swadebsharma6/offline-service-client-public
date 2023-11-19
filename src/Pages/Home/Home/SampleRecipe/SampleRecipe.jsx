@@ -12,7 +12,7 @@ const SampleRecipe = () => {
     return (
         <div className="mb-16">
             <div className="max-w-2xl text-center mx-auto mb-6">
-            <h2 className="text-2xl font-bold mb-6 text-primary underline">Popular Recipes</h2>
+            <h2 className="text-2xl font-bold mb-6 text-primary underline">Sample Of Recipes</h2>
             <p className="text-center font-bold">Welcome to OFF.Recipe Book, where we bring the joy of cooking to your fingertips, no matter where you are. Our mission is to make cooking and meal planning a delightful experience for food lovers of all levels.</p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
