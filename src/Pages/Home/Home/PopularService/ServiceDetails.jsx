@@ -1,10 +1,11 @@
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import ExtraBanner from "../../../../components/ExtraBanner/ExtraBanner";
 
 const ServiceDetails = () => {
   const service = useLoaderData();
+  
   const {
-   
+    _id,
     serviceName,
     serviceImg,
     description,
@@ -12,7 +13,9 @@ const ServiceDetails = () => {
     providerPhoto,
     price,
   } = service;
-  console.log(service);
+ 
+
+  
 
   return (
     <section className="mb-20">
@@ -40,7 +43,9 @@ const ServiceDetails = () => {
              </div>
             <h4 className="text-xl font-bold">{serviceProviderName}</h4>
             </div>
-              <div className="text-end"><button className="btn border-0 btn-outline border-b-4 btn-secondary">Book Now</button></div>
+              <div className="text-end">
+                <Link to={`/purchase/${_id}`}><button className="btn border-0 btn-outline border-b-4 btn-secondary">Book Now</button></Link>
+              </div>
             </div>
           </div>
         </div>

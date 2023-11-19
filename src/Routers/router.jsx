@@ -9,6 +9,7 @@ import ServiceDetails from "../Pages/Home/Home/PopularService/ServiceDetails";
 import Login from "../Pages/LogIn/Login";
 import MySchedule from "../Pages/My-Schedule/MySchedule";
 import MyServices from "../Pages/MyServices/MyServices";
+import Purchase from "../Pages/Purchase/Purchase";
 import Register from "../Pages/Register/Register";
 import Services from "../Pages/Services/Services";
 
@@ -30,6 +31,11 @@ const router = createBrowserRouter([
         {
             path: '/details/:id',
             element: <ServiceDetails></ServiceDetails>,
+            loader: ({params})=> fetch(`http://localhost:5000/service/${params.id}`)
+        },
+        {
+            path: '/purchase/:id',
+            element:<Purchase></Purchase>,
             loader: ({params})=> fetch(`http://localhost:5000/service/${params.id}`)
         },
         {

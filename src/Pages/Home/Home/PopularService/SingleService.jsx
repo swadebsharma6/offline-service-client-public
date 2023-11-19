@@ -20,11 +20,11 @@ const SingleService = ({service}) => {
           <h4 className="text-yellow-800 font-bold">{price}</h4>
           </div>
           <div>
-          <h2 className="text-xl font-bold">{serviceName}</h2>
+          <h2 className="text-xl font-bold uppercase">{serviceName}</h2>
           
           
           <p>{description.slice(0,130)}....<span className="text-primary font-medium">Read More</span> </p>
-          <div className="card-actions mt-4">
+          <div className="text-center mt-4">
             <Link to={`/details/${_id}`}><button className="btn btn-primary btn-block">View Details</button></Link>
           </div>
         </div>

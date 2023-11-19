@@ -11,7 +11,7 @@ const PopularService = () => {
     useEffect(()=>{
         fetch(url)
         .then(res =>res.json())
-        .then(data => setServices(data.slice(0,6)))
+        .then(data => setServices(data.slice(0,3)))
     },[url])
    
     return (
