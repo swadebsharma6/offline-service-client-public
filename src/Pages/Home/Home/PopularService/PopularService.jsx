@@ -13,7 +13,7 @@ const PopularService = () => {
         .then(res =>res.json())
         .then(data => setServices(data.slice(0,6)))
     },[url])
-    console.log(services)
+   
     return (
         <section className="mb-20">
         <div className="max-w-2xl text-center mx-auto mb-6">

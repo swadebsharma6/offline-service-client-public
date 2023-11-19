@@ -1,7 +1,8 @@
+import { Link } from "react-router-dom";
 
 
 const SingleService = ({service}) => {
-    const {serviceName,serviceImg, description,serviceProviderName,providerPhoto,price} = service;
+    const {_id,serviceName,serviceImg, description,serviceProviderName,providerPhoto,price} = service;
     return (
         <section>
         <div className="w-full  bg-base-100 shadow-xl border border-deep-orange-300 rounded-b-2xl">
@@ -24,7 +25,7 @@ const SingleService = ({service}) => {
           
           <p>{description.slice(0,130)}....<span className="text-primary font-medium">Read More</span> </p>
           <div className="card-actions mt-4">
-            <button className="btn btn-primary btn-block">View Details</button>
+            <Link to={`/details/${_id}`}><button className="btn btn-primary btn-block">View Details</button></Link>
           </div>
         </div>
         </div>

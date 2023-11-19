@@ -5,6 +5,7 @@ import About from "../Pages/About/About";
 import AddServices from "../Pages/AddServices/AddServices";
 import DashBoardHome from "../Pages/DashBoard/DashBoardHome/DashBoardHome";
 import Home from "../Pages/Home/Home/Home";
+import ServiceDetails from "../Pages/Home/Home/PopularService/ServiceDetails";
 import Login from "../Pages/LogIn/Login";
 import MySchedule from "../Pages/My-Schedule/MySchedule";
 import MyServices from "../Pages/MyServices/MyServices";
@@ -23,7 +24,13 @@ const router = createBrowserRouter([
         },
         {
             path: '/services',
-            element: <Services></Services>
+            element: <Services></Services>,
+            loader: ()=> fetch('http://localhost:5000/all-services')
+        },
+        {
+            path: '/details/:id',
+            element: <ServiceDetails></ServiceDetails>,
+            loader: ({params})=> fetch(`http://localhost:5000/service/${params.id}`)
         },
         {
             path: '/about',
@@ -37,18 +44,7 @@ const router = createBrowserRouter([
             path: '/register',
             element: <Register></Register>
         },
-        {
-            path: '/my-services',
-            element: <MyServices></MyServices>
-        },
-        {
-            path: '/add',
-            element: <AddServices></AddServices>
-        },
-        {
-            path: '/schedule',
-            element: <MySchedule></MySchedule>
-        }
+     
       ]
     },
     {
