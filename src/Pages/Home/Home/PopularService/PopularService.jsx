@@ -7,7 +7,7 @@ const PopularService = () => {
 
     const [services, setServices] = useState([]);
 
-    const url = `http://localhost:5000/all-services`
+    const url = `https://offline-service-server-side.vercel.app/all-services`
     useEffect(()=>{
         fetch(url)
         .then(res =>res.json())

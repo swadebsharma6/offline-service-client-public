@@ -30,7 +30,7 @@ const AddServices = () => {
         }
 
      
-        fetch(`http://localhost:5000/news-services`, {
+        fetch(`https://offline-service-server-side.vercel.app/news-services`, {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

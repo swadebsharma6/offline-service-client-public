@@ -14,6 +14,7 @@ import Purchase from "../Pages/Purchase/Purchase";
 import Register from "../Pages/Register/Register";
 import Services from "../Pages/Services/Services";
 import PrivetRoute from "../Providers/PrivetRoute";
+import ErrorPage from "../components/ErrorPage/ErrorPage";
 
 
 const router = createBrowserRouter([
@@ -28,17 +29,17 @@ const router = createBrowserRouter([
         {
             path: '/services',
             element: <Services></Services>,
-            loader: ()=> fetch('http://localhost:5000/all-services')
+            loader: ()=> fetch('https://offline-service-server-side.vercel.app/all-services')
         },
         {
             path: '/details/:id',
             element: <ServiceDetails></ServiceDetails>,
-            loader: ({params})=> fetch(`http://localhost:5000/service/${params.id}`)
+            loader: ({params})=> fetch(`https://offline-service-server-side.vercel.app/service/${params.id}`)
         },
         {
             path: '/purchase/:id',
             element:<PrivetRoute><Purchase></Purchase></PrivetRoute>,
-            loader: ({params})=> fetch(`http://localhost:5000/service/${params.id}`)
+            loader: ({params})=> fetch(`https://offline-service-server-side.vercel.app/service/${params.id}`)
         },
         {
             path: '/about',
@@ -53,7 +54,8 @@ const router = createBrowserRouter([
             element: <Register></Register>
         },
      
-      ]
+      ],
+      errorElement: <ErrorPage></ErrorPage>
     },
     {
       path: '/dashboard',
@@ -74,14 +76,15 @@ const router = createBrowserRouter([
         {
             path: '/dashboard/update/:id',
             element: <PrivetRoute><Update></Update></PrivetRoute>,
-            loader: ({params})=> fetch(`http://localhost:5000/news-services/${params.id}`)
+            loader: ({params})=> fetch(`https://offline-service-server-side.vercel.app/news-services/${params.id}`)
         },
         
         {
             path: '/dashboard/my-schedule',
             element: <PrivetRoute><MySchedule></MySchedule></PrivetRoute>
         }
-      ]
+      ],
+      errorElement: <ErrorPage></ErrorPage>
     }
   ]);
 

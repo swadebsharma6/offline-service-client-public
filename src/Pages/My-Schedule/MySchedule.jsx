@@ -6,7 +6,7 @@ const MySchedule = () => {
   const [booking, setBooking] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/bookings")
+    fetch("https://offline-service-server-side.vercel.app/bookings")
       .then((res) => res.json())
       .then((data) => {
         setBooking(data);

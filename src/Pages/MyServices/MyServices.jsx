@@ -10,7 +10,7 @@ const MyServices = () => {
   const [newServices, setNewServices] = useState([]);
 
   useEffect(()=>{
-    const url = `http://localhost:5000/news-services`
+    const url = `https://offline-service-server-side.vercel.app/news-services`
     fetch(url)
     .then(res => res.json())
     .then(data =>{
@@ -30,7 +30,7 @@ const MyServices = () => {
         confirmButtonText: "Yes, delete it!"
       }).then((result) => {
         if (result.isConfirmed) {
-          fetch(`http://localhost:5000/news-services/${id}`,{
+          fetch(`https://offline-service-server-side.vercel.app/news-services/${id}`,{
             method: "DELETE"
           })
           .then(res =>res.json())

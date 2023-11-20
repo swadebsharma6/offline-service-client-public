@@ -31,7 +31,7 @@ const Update = () => {
         }
 
         // console.log(service)
-        fetch(`http://localhost:5000/news-services/${_id}`, {
+        fetch(`https://offline-service-server-side.vercel.app/news-services/${_id}`, {
             method: 'PATCH',
             headers: {
                 'content-type': 'application/json'
