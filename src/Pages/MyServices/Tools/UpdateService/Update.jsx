@@ -30,7 +30,7 @@ const Update = () => {
             description
         }
 
-        console.log(service)
+        // console.log(service)
         fetch(`http://localhost:5000/news-services/${_id}`, {
             method: 'PATCH',
             headers: {
@@ -40,7 +40,7 @@ const Update = () => {
         })
         .then(res =>res.json())
         .then(data =>{
-            console.log(data);
+            // console.log(data);
             if(data.modifiedCount > 0){
                 Swal.fire({
                     position: "center",

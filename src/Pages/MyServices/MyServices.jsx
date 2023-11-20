@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Helmet } from "react-helmet-async";
 import Swal from "sweetalert2";
 import DashHeader from "../../LayOut/DashHeader";
 import banner from '../../assets/images/banner/banner-2.jpg';
@@ -51,6 +52,7 @@ const MyServices = () => {
 
     return (
         <section>
+        <Helmet><title>OFF.R| DashBoard |My Service</title></Helmet>
         <DashHeader photo={banner} title={'Manage Service'}></DashHeader>
           <div>
           

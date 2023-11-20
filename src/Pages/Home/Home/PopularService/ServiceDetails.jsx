@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import { Link, useLoaderData } from "react-router-dom";
 import ExtraBanner from "../../../../components/ExtraBanner/ExtraBanner";
 
@@ -19,6 +20,7 @@ const ServiceDetails = () => {
 
   return (
     <section className="mb-20">
+    <Helmet><title>OFF.R| Service |Details</title></Helmet>
       <ExtraBanner
         photo={serviceImg}
         title={`Details of: ${serviceName}`}

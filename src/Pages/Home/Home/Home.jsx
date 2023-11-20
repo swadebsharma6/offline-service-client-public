@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import Footer from "../../../components/Footer/Footer";
 import About from "./About/About";
 import Banner from "./Banner/Banner";
@@ -12,6 +13,7 @@ const Home = () => {
     
     return (
         <section>
+        <Helmet><title>OFF.RECIPE | Home</title></Helmet>
              <Banner></Banner>
              <About></About>
              <PopularService></PopularService>

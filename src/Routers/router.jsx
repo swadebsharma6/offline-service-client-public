@@ -13,6 +13,7 @@ import Update from "../Pages/MyServices/Tools/UpdateService/Update";
 import Purchase from "../Pages/Purchase/Purchase";
 import Register from "../Pages/Register/Register";
 import Services from "../Pages/Services/Services";
+import PrivetRoute from "../Providers/PrivetRoute";
 
 
 const router = createBrowserRouter([
@@ -36,7 +37,7 @@ const router = createBrowserRouter([
         },
         {
             path: '/purchase/:id',
-            element:<Purchase></Purchase>,
+            element:<PrivetRoute><Purchase></Purchase></PrivetRoute>,
             loader: ({params})=> fetch(`http://localhost:5000/service/${params.id}`)
         },
         {
@@ -64,21 +65,21 @@ const router = createBrowserRouter([
         },
         {
             path: '/dashboard/add-services',
-            element: <AddServices></AddServices>
+            element: <PrivetRoute><AddServices></AddServices></PrivetRoute>
         },
         {
             path:'/dashboard/my-service',
-            element: <MyServices></MyServices>
+            element: <PrivetRoute><MyServices></MyServices></PrivetRoute>
         },
         {
             path: '/dashboard/update/:id',
-            element: <Update></Update>,
+            element: <PrivetRoute><Update></Update></PrivetRoute>,
             loader: ({params})=> fetch(`http://localhost:5000/news-services/${params.id}`)
         },
         
         {
             path: '/dashboard/my-schedule',
-            element: <MySchedule></MySchedule>
+            element: <PrivetRoute><MySchedule></MySchedule></PrivetRoute>
         }
       ]
     }

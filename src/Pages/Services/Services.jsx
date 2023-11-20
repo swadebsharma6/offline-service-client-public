@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Helmet } from "react-helmet-async";
 import { useLoaderData } from "react-router-dom";
 import Footer from "../../components/Footer/Footer";
 import NoData from "../../components/NoData/NoData";
@@ -18,10 +19,11 @@ const Services = () => {
         const filteredServices = services.filter(service => service.serviceName.toLowerCase().includes(value.toLowerCase()));
         setFilterServices(filteredServices)
     } 
-    console.log('filtered service', filterServices)
+    // console.log('filtered service', filterServices)
 
     return (
         <section>
+        <Helmet><title>OFF.RECIPE | Service</title></Helmet>
             <ServiceBanner handleSearching={handleSearching}></ServiceBanner>
             <div>
             {

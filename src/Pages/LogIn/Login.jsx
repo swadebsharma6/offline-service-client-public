@@ -1,5 +1,5 @@
 import { useContext, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import swal from "sweetalert";
 import { AuthContext } from "../../Providers/AuthProvider";
 
@@ -11,6 +11,8 @@ const Login = () => {
     const [error, setError] = useState('');
 
     const navigate = useNavigate();
+    const location = useLocation();
+   
 
     const handleSubmit = event =>{
         event.preventDefault();
@@ -29,7 +31,7 @@ const Login = () => {
             const user = result.user;
             console.log('login user', user);
             setSuccess('Your Logged in Successfully')
-            navigate('/');
+            navigate(location?.state  ? location.state : '/')
             swal("Good job!", "User Logged in successfully!", "success");
             form.reset()
         })

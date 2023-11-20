@@ -1,4 +1,5 @@
 import { useContext } from 'react';
+import { Helmet } from 'react-helmet-async';
 import Swal from 'sweetalert2';
 import DashHeader from '../../LayOut/DashHeader';
 import { AuthContext } from '../../Providers/AuthProvider';
@@ -28,7 +29,7 @@ const AddServices = () => {
             description
         }
 
-        console.log(service)
+     
         fetch(`http://localhost:5000/news-services`, {
             method: 'POST',
             headers: {
@@ -55,6 +56,7 @@ const AddServices = () => {
 
     return (
         <section className=''>
+        <Helmet><title>OFF.R| DashBoard |AddProduct</title></Helmet>
          <DashHeader photo={banner} title={'ADD SERVICE'}></DashHeader>
            <div>
            <form onSubmit={HandleAddService} className="card-body">
@@ -77,13 +79,13 @@ const AddServices = () => {
          <label className="label">
            <span className="label-text">User Name</span>
          </label>
-         <input type="text" name='userName' defaultValue={user.displayName} placeholder="Name" readOnly className="input input-bordered" required />
+         <input type="text" name='userName' defaultValue={user?.displayName} placeholder="Name" readOnly className="input input-bordered" required />
        </div>
        <div className="form-control flex-1">
          <label className="label">
            <span className="label-text">User Email</span>
          </label>
-         <input type="email" name='email' defaultValue={user.email} placeholder="Email" readOnly className="input input-bordered" required />
+         <input type="email" name='email' defaultValue={user?.email} placeholder="Email" readOnly className="input input-bordered" required />
        </div>
          </div>
          <div className='md:flex gap-4'>

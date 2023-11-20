@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const NewService = ({service, handleDeleteService}) => {
 
     const {_id, serviceName,serviceImage, price,userEmail, userName, area } = service;
-    console.log(service)
+    // console.log(service)
 
     return (
         <section className="p-5">
@@ -32,8 +32,3 @@ const NewService = ({service, handleDeleteService}) => {
 
 export default NewService;
 
-// Swal.fire({
-//     title: "Deleted!",
-//     text: "Your file has been deleted.",
-//     icon: "success"
-//   });

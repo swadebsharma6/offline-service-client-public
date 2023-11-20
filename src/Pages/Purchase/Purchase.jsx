@@ -1,4 +1,5 @@
 import { useContext } from "react";
+import { Helmet } from "react-helmet-async";
 import { useLoaderData } from "react-router-dom";
 import Swal from "sweetalert2";
 import { AuthContext } from "../../Providers/AuthProvider";
@@ -43,7 +44,7 @@ const Purchase = () => {
         })
         .then(res =>res.json())
         .then(data=>{
-            console.log(data)
+            // console.log(data)
             if(data.insertedId){
                 Swal.fire({
                     position: "center",
@@ -59,6 +60,7 @@ const Purchase = () => {
 
     return (
         <section className="mb-20">
+        <Helmet><title>OFF.R | PURCHASE</title></Helmet>
         <ExtraBanner
         photo={serviceImg}
         title={`Details of: ${serviceName}`}
