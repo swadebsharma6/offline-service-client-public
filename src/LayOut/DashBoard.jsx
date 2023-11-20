@@ -11,7 +11,7 @@ const DashBoard = () => {
             <div className="col-span-full md:col-span-3 border bg-blue-gray-200 md:h-[200px] rounded-xl">
             <DashNav></DashNav>
             </div>
-            <div className="col-span-full md:col-span-9 border bg-brown-200">
+            <div className="col-span-full md:col-span-9 border bg-brown-200 mb-10">
             <Outlet></Outlet>
             </div>
             </div>

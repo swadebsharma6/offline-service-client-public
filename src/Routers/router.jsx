@@ -9,6 +9,7 @@ import ServiceDetails from "../Pages/Home/Home/PopularService/ServiceDetails";
 import Login from "../Pages/LogIn/Login";
 import MySchedule from "../Pages/My-Schedule/MySchedule";
 import MyServices from "../Pages/MyServices/MyServices";
+import Update from "../Pages/MyServices/Tools/UpdateService/Update";
 import Purchase from "../Pages/Purchase/Purchase";
 import Register from "../Pages/Register/Register";
 import Services from "../Pages/Services/Services";
@@ -62,13 +63,19 @@ const router = createBrowserRouter([
             element: <DashBoardHome></DashBoardHome>
         },
         {
+            path: '/dashboard/add-services',
+            element: <AddServices></AddServices>
+        },
+        {
             path:'/dashboard/my-service',
             element: <MyServices></MyServices>
         },
         {
-            path: '/dashboard/add-services',
-            element: <AddServices></AddServices>
+            path: '/dashboard/update/:id',
+            element: <Update></Update>,
+            loader: ({params})=> fetch(`http://localhost:5000/news-services/${params.id}`)
         },
+        
         {
             path: '/dashboard/my-schedule',
             element: <MySchedule></MySchedule>

@@ -1,14 +1,16 @@
-import { useContext } from 'react';
-import Swal from 'sweetalert2';
-import DashHeader from '../../LayOut/DashHeader';
-import { AuthContext } from '../../Providers/AuthProvider';
-import banner from '../../assets/images/banner/banner-2.jpg';
+import { useContext } from "react";
+import { useLoaderData } from "react-router-dom";
+import Swal from "sweetalert2";
+import DashHeader from "../../../../LayOut/DashHeader";
+import { AuthContext } from "../../../../Providers/AuthProvider";
 
 
-const AddServices = () => {
+const Update = () => {
     const {user} = useContext(AuthContext);
+    const service = useLoaderData();
+    const {_id,serviceImage, } = service;
 
-    const HandleAddService =(event)=>{
+    const HandleUpdateService =(event)=>{
         event.preventDefault();
         const form = event.target;
 
@@ -29,8 +31,8 @@ const AddServices = () => {
         }
 
         console.log(service)
-        fetch(`http://localhost:5000/news-services`, {
-            method: 'POST',
+        fetch(`http://localhost:5000/news-services/${_id}`, {
+            method: 'PATCH',
             headers: {
                 'content-type': 'application/json'
             },
@@ -39,11 +41,11 @@ const AddServices = () => {
         .then(res =>res.json())
         .then(data =>{
             console.log(data);
-            if(data.insertedId){
+            if(data.modifiedCount > 0){
                 Swal.fire({
                     position: "center",
                     icon: "success",
-                    title: "Product Added Successfully.",
+                    title: "Product Updated Successfully.",
                     showConfirmButton: false,
                     timer: 1500
                   });
@@ -54,10 +56,14 @@ const AddServices = () => {
     }
 
     return (
-        <section className=''>
-         <DashHeader photo={banner} title={'ADD SERVICE'}></DashHeader>
-           <div>
-           <form onSubmit={HandleAddService} className="card-body">
+        <section>
+                <DashHeader
+                 photo={serviceImage}
+                  title={'Updating Service'}
+                  ></DashHeader>
+
+        <div>
+           <form onSubmit={HandleUpdateService}  className="card-body">
          <div className='md:flex gap-4'>
          <div className="form-control flex-1">
          <label className="label">
@@ -77,13 +83,13 @@ const AddServices = () => {
          <label className="label">
            <span className="label-text">User Name</span>
          </label>
-         <input type="text" name='userName' defaultValue={user.displayName} placeholder="Name" readOnly className="input input-bordered" required />
+         <input type="text" name='userName' defaultValue={user.displayName}  placeholder="Name" readOnly className="input input-bordered" required />
        </div>
        <div className="form-control flex-1">
          <label className="label">
            <span className="label-text">User Email</span>
          </label>
-         <input type="email" name='email' defaultValue={user.email} placeholder="Email" readOnly className="input input-bordered" required />
+         <input type="email" name='email'  placeholder="Email" defaultValue={user.email} readOnly className="input input-bordered" required />
        </div>
          </div>
          <div className='md:flex gap-4'>
@@ -107,7 +113,7 @@ const AddServices = () => {
           <textarea name='description' className="textarea textarea-info" placeholder="Description"></textarea>
         </div>
         <div className="form-control mt-6">
-          <button type='submit' className="btn btn-primary">Add Service</button>
+          <button type='submit' className="btn btn-primary">Update Service</button>
         </div>
       </form>
            </div>
@@ -115,4 +121,4 @@ const AddServices = () => {
     );
 };
 
-export default AddServices;
+export default Update;

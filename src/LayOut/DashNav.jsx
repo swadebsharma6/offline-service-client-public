@@ -4,17 +4,17 @@ import { NavLink } from "react-router-dom";
 const DashNav = () => {
 
     const navMenus =<>
-    <li className="text-center"><NavLink
-    to="/dashboard/my-service"
-    className={({ isActive,}) => isActive ? "text-lg font-bold text-blue-600 " : "" }
-    >
-    My-Service
-  </NavLink></li>
     <li><NavLink
     to="/dashboard/add-services"
     className={({ isActive,}) => isActive ? "text-lg font-bold text-blue-600 " : "" }
     >
     Add-Service
+  </NavLink></li>
+    <li className="text-center"><NavLink
+    to="/dashboard/my-service"
+    className={({ isActive,}) => isActive ? "text-lg font-bold text-blue-600 " : "" }
+    >
+    My-Service
   </NavLink></li>
     <li><NavLink
     to="/dashboard/my-schedule"
