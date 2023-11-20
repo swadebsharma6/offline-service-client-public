@@ -1,7 +1,7 @@
 import { updateProfile } from "firebase/auth";
 import { useContext, useState } from "react";
 import toast from "react-hot-toast";
-import { Link } from "react-router-dom";
+import { Link, } from "react-router-dom";
 import swal from "sweetalert";
 import { AuthContext } from "../../Providers/AuthProvider";
 import SocialRegister from "./SocialRegister/SocialRegister";
@@ -33,9 +33,6 @@ const Register = () => {
        setError('Please Provide a Capital Letter');
        return;
      }
-     
-
-
         // create User
         createUser(email, password)
         .then(result =>{
@@ -61,6 +58,8 @@ const Register = () => {
             setError(error.message);
         })
     }
+
+    
 
     return (
         <section>
